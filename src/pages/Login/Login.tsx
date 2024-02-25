@@ -13,7 +13,7 @@ export const Login: FC = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data: IInputLogin) => {
-    fetch("https://fakestoreapi.com/auth/login", {
+    fetch(`${process.env.REACT_APP_API_DOMAIN}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -22,13 +22,15 @@ export const Login: FC = () => {
       }),
     })
       .then((res) => res.json())
-      .then((responseData: { token: string }) => {
+      .then((responseData) => {
         localStorage.setItem("TOKEN", responseData.token);
         navigate("/");
-      })
-      .catch((error) => {
-        console.log(error);
       });
+
+    try {
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
