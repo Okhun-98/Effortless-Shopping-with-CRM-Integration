@@ -16,6 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import { yellow } from "@mui/material/colors";
 
 interface Props {
   window?: () => Window;
@@ -74,10 +75,14 @@ const DrawerAppBar: React.FC<Props> = (props: Props) => {
             <MenuIcon />
           </IconButton>
           <Typography
+            color={"yellow"}
+            textTransform={"uppercase"}
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
-          ></Typography>
+            sx={{ flexGrow: 1 }}
+          >
+            Shop In
+          </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {links.map((link) => (
               <Button
