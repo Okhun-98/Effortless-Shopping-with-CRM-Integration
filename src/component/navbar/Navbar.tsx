@@ -16,18 +16,13 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { yellow } from "@mui/material/colors";
-
-interface Props {
-  window?: () => Window;
-  title: string;
-  links: { label: string; url: string }[];
-}
+import { navLinks } from "./navbar.data";
+import { INavbarProps } from "../../types/navbar";
 
 const drawerWidth = 240;
 
-const DrawerAppBar: React.FC<Props> = (props: Props) => {
-  const { window, links, title } = props;
+export const Navbar: React.FC<INavbarProps> = (props) => {
+  const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
@@ -37,15 +32,15 @@ const DrawerAppBar: React.FC<Props> = (props: Props) => {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        {title}
+        ShopIn
       </Typography>
       <Divider />
       <List>
-        {links.map((link) => (
-          <ListItem key={link.url} disablePadding>
+        {navLinks.map((link) => (
+          <ListItem key={link.path} disablePadding>
             <ListItemButton sx={{ textAlign: "center" }}>
               <Link
-                to={link.url}
+                to={link.path}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
                 <ListItemText primary={link.label} />
@@ -84,12 +79,12 @@ const DrawerAppBar: React.FC<Props> = (props: Props) => {
             Shop In
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {links.map((link) => (
+            {navLinks.map((link) => (
               <Button
-                key={link.url}
+                key={link.path}
                 sx={{ color: "#fff" }}
                 component={Link}
-                to={link.url}
+                to={link.path}
               >
                 {link.label}
               </Button>
@@ -124,5 +119,3 @@ const DrawerAppBar: React.FC<Props> = (props: Props) => {
     </Box>
   );
 };
-
-export default DrawerAppBar;
