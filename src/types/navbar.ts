@@ -5,4 +5,5 @@ export interface INavbarProps {
 export interface INavLink {
   label: string;
   path: string;
+  isLoggedIn: boolean;
 }
