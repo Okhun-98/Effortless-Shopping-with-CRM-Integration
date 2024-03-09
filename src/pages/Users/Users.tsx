@@ -1,5 +1,5 @@
 import React from "react";
 
 export const Users = () => {
-  return <div>Hello all Users</div>;
+  return <div>Hello Users</div>;
 };

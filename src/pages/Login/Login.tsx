@@ -3,6 +3,7 @@ import { Button, TextField } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { IInputLogin } from "../../types/login";
 import { useNavigate } from "react-router-dom";
+import { useTokenStore } from "../../stores/token";
 
 export const Login: FC = () => {
   const {
@@ -11,6 +12,8 @@ export const Login: FC = () => {
     formState: { errors },
   } = useForm<IInputLogin>();
   const navigate = useNavigate();
+
+  const { setToken } = useTokenStore();
 
   const onSubmit = (data: IInputLogin) => {
     fetch(`${process.env.REACT_APP_API_DOMAIN}/auth/login`, {
@@ -23,7 +26,7 @@ export const Login: FC = () => {
     })
       .then((res) => res.json())
       .then((responseData) => {
-        localStorage.setItem("TOKEN", responseData.token);
+        setToken(responseData.token);
         navigate("/");
       });
 
