@@ -16,7 +16,7 @@ import {
   Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { navLinks } from "./navbar.data";
+import { navLinks } from "../navbar/navbar.data";
 import { INavbarProps } from "../../types/navbar";
 import { useTokenStore } from "../../stores/token";
 
