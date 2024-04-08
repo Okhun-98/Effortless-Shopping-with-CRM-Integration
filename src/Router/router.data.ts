@@ -1,8 +1,8 @@
 import { Home } from "../pages/Home/Home";
 import { Login } from "../pages/Login/Login";
 import { IRouter } from "../types/router";
-import { Users } from "../pages/Users/Users";
 import { Profile } from "../pages/Profile/Profile";
+import Users from "../pages/Users/Users";
 
 export const routerData: IRouter[] = [
   { component: Home, path: "/", isPublish: true },
