@@ -133,7 +133,6 @@ export const Navbar: React.FC<INavbarProps> = (props) => {
       </nav>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <Toolbar />
-        <Typography paragraph>Add your main content here.</Typography>
       </Box>
     </Box>
   );
