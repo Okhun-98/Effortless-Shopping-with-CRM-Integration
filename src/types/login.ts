@@ -5,3 +5,4 @@ export interface IInputLogin {
 export interface IResponseLogin {
   token: string;
 }
+
